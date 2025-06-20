@@ -1,16 +1,66 @@
-// Add this at the top with other imports
+const express = require('express');
+const path = require('path');
 const session = require('express-session');
+const mysql = require('mysql2/promise'); // Added for database access
+require('dotenv').config();
 
-// Add session middleware after app initialization
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Database configuration
+const dbConfig = {
+  host: process.env.DB_HOST || 'localhost',
+  user: process.env.DB_USER || 'root',
+  password: process.env.DB_PASSWORD || '',
+  database: process.env.DB_NAME || 'DogWalkService',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+};
+
+const pool = mysql.createPool(dbConfig);
+
+// Session middleware
 app.use(session({
-  secret: 'your_secret_key_here', // Change this to a strong secret
+  secret: process.env.SESSION_SECRET || 'your_secret_key_here',
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // Set to true in production with HTTPS
+    secure: process.env.NODE_ENV === 'production', // Set to true in production with HTTPS
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   }
 }));
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // Added for form data
+app.use(express.static(path.join(__dirname, '/public')));
+
+// Routes
+const walkRoutes = require('./routes/walkRoutes');
+const userRoutes = require('./routes/userRoutes');
+
+app.use('/api/walks', walkRoutes);
+app.use('/api/users', userRoutes);
+
+// Authentication middleware
+const authenticate = (req, res, next) => {
+  if (!req.session.user) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  next();
+};
+
+// Role-based access middleware
+const requireRole = (role) => {
+  return (req, res, next) => {
+    if (req.session.user && req.session.user.role === role) {
+      next();
+    } else {
+      res.status(403).json({ error: 'Forbidden' });
+    }
+  };
+};
 
 // Login API endpoint
 app.post('/api/auth/login', async (req, res) => {
@@ -18,7 +68,7 @@ app.post('/api/auth/login', async (req, res) => {
 
   try {
     // Query database for user
-    const [users] = await db.execute(
+    const [users] = await pool.query(
       'SELECT user_id, username, role FROM Users WHERE username = ? AND password_hash = ?',
       [username, password]
     );
@@ -48,45 +98,18 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
-// Authentication middleware
-const authenticate = (req, res, next) => {
-  if (!req.session.user) {
-    return res.status(401).json({ error: 'Unauthorized' });
-  }
-  next();
-};
-
-// Role-based access middleware
-const requireRole = (role) => {
-  return (req, res, next) => {
-    if (req.session.user && req.session.user.role === role) {
-      next();
-    } else {
-      res.status(403).json({ error: 'Forbidden' });
-    }
-  };
-};
-
-// Protected routes for dashboards
-app.get('/owner-dashboard.html', authenticate, requireRole('owner'), (req, res) => {
-  res.sendFile(path.join(__dirname, 'owner-dashboard.html'));
-});
-
-app.get('/walker-dashboard.html', authenticate, requireRole('walker'), (req, res) => {
-  res.sendFile(path.join(__dirname, 'walker-dashboard.html'));
-});
-
 // Logout endpoint
 app.post('/api/auth/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
       return res.status(500).json({ error: 'Logout failed' });
     }
+    res.clearCookie('connect.sid'); // Clear session cookie
     res.json({ message: 'Logout successful' });
   });
 });
 
-// Add this endpoint to check current session
+// Current user session endpoint
 app.get('/api/auth/current', (req, res) => {
   if (req.session.user) {
     res.json({
@@ -99,3 +122,20 @@ app.get('/api/auth/current', (req, res) => {
     res.json({ loggedIn: false });
   }
 });
+
+// Protected routes for dashboards
+app.get('/owner-dashboard.html', authenticate, requireRole('owner'), (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/owner-dashboard.html'));
+});
+
+app.get('/walker-dashboard.html', authenticate, requireRole('walker'), (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/walker-dashboard.html'));
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+// Export the app
+module.exports = app;
