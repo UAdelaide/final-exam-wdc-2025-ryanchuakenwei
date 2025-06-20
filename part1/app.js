@@ -122,7 +122,7 @@ let db;
     }
 })();
 
-// API 
+// API endpoint to fetch all dogs with their owner usernames
 app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.execute(`
@@ -138,3 +138,4 @@ app.get('/api/dogs', async (req, res) => {
         }
     });
 
+// 
