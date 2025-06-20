@@ -115,4 +115,7 @@ let db;
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
         });
-    } catch (err) {
+    }
+    catch (err) {
+        console.error('Error initializing database:', err);
+    }
