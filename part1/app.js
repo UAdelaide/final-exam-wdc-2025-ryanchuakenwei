@@ -131,6 +131,8 @@ let db;
     }
 })();
 
+function formatDateTime(dateTimeString)
+
 // API endpoint to fetch all dogs with their owner usernames
 app.get('/api/dogs', async (req, res) => {
     try {
