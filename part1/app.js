@@ -134,7 +134,7 @@ let db;
 function formatDateTime(dateTimeString) {
     if (!dateTimeString)
         return null;
-    return new Date(dateTimeString)
+    return new Date(dateTimeString).toISOString();
 }
 
 // API endpoint to fetch all dogs with their owner usernames
