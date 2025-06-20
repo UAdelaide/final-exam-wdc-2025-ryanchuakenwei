@@ -44,7 +44,11 @@ header ul li:hover {
 }
 
 /* Customizing the login page buttons and interactables */
-.custom
+.loginForm {
+
+}
+
+
 main, section {
     margin-top: 4em;
     padding: 1em;
