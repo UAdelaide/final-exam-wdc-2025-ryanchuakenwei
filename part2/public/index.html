@@ -13,7 +13,7 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <!-- Login edits here -->
-    <form @submit.prevent = "login" class = "mb-4 p-4 border rounded bg-white shadow-sm" style="max-width: 400px;">
+    <form @submit.prevent = "login" class = "loginForm" style="max-width: 400px;">
       <div class="mb-3">
         <label for="username" class="form-label">Username</label>
         <input v-model="username" type="text" id="username" class="form-control" required>
