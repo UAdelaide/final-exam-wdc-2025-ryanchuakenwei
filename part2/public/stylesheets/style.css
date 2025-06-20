@@ -56,7 +56,12 @@ header ul li:hover {
 
 }
 
-.loginForm input[type="text"]
+.loginForm input[type="text"],
+.loginForm input[type="password"] {
+
+}
+
+,
 main, section {
     margin-top: 4em;
     padding: 1em;
