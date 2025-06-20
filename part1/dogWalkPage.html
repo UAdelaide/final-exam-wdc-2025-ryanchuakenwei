@@ -12,16 +12,16 @@
     </head>
     <body>
         <div id = "app">
-        <div class = "offer">
-            <h1>Dog Walking Services!</h1>
-            <p>We walk dogs! WOOF!</p>
-        </div>
+            <div class = "offer">
+                <h1>Dog Walking Services!</h1>
+                <p>We walk dogs! WOOF!</p>
+            </div>
 
-        <div class = "DOTD">
-            <h1>DOG OF THE DAY (DOTD)</h1>
-            <img :src="dogOfTheDay" alt="Dog of the Day" class="dogImage">
+            <div class = "DOTD">
+                <h1>DOG OF THE DAY (DOTD)</h1>
+                <img :src="dogOfTheDay" alt="Dog of the Day" class="dogImage">
+            </div>
         </div>
-
         <script>
             const { createApp, ref, onMounted } = Vue;
             createApp({
