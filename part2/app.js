@@ -13,7 +13,12 @@ const dbConfig = {
     user: process.env.DB_USER || 'root',
     password: process.env.DB_PASSWORD || '',
     database: process.env.DB_NAME || 'DogWalkService',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 }
+
+const pool = mysql.createPool
 
 // Middleware
 app.use(express.json());
