@@ -101,4 +101,4 @@ let db;
             `);
 
             await db.execute(`
-                
+                INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
