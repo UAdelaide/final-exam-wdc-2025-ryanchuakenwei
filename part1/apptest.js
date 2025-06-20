@@ -40,7 +40,8 @@ let db;
     const schemaSQL = fs.readFileSync(schemaPath, 'utf8');
     await db.query(schemaSQL);
 
-    
+    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    if (rows[0].count === 0) {
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
