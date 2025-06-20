@@ -123,4 +123,6 @@ let db;
 })();
 
 app.get('/api/dogs', async (req, res) => {
-    try {}
+    try {
+        const [dogs] = await db.execute
+    }
