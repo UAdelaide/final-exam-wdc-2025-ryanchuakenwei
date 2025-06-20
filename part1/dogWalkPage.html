@@ -23,7 +23,9 @@
 
                     const fetchDogOfTheDay = async () => {
                         try {
-                            const response = await fetch('https://dog.ceo/')
+                            const response = await fetch('https://dog.ceo/api/breeds/image/random');
+                            const data = await response.json();
+                            
                         }
                     }
                     });
