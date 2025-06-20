@@ -158,4 +158,6 @@ app.get('api/walkreqests/open', async (req, res) => {
 
 // to get walking summary
 app.get ('api/walkers/summary', async (req, res) => {
-    try
+    try {
+        const [walkers] = await db.execute()
+    }
