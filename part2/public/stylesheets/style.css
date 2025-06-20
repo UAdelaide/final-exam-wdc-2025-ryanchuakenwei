@@ -44,15 +44,6 @@ header ul li:hover {
 }
 
 /* Customizing the login page buttons and interactables */
-.loginForm {
-    max-width: 400px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border: 1px solid #dee2e6;
-    border-radius: 0.5rem;
-    background: #fff;
-    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-}
 
 .loginPageButtons {
     margin-bottom: 1rem;
