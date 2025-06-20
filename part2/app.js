@@ -62,7 +62,80 @@ const requireRole = (role) => {
   };
 };
 
+// Login API endpoint
+app.post('/api/auth/login', async (req, res) => {
+  const { username, password } = req.body;
 
+  try {
+    // Query database for user
+    const [users] = await pool.query(
+      'SELECT user_id, username, role FROM Users WHERE username = ? AND password_hash = ?',
+      [username, password]
+    );
+
+    if (users.length === 0) {
+      return res.status(401).json({ error: 'Invalid username or password' });
+    }
+
+    const user = users[0];
+
+    // Store user in session
+    req.session.user = {
+      id: user.user_id,
+      username: user.username,
+      role: user.role
+    };
+
+    res.json({
+      message: 'Login successful',
+      userId: user.user_id,
+      username: user.username,
+      role: user.role
+    });
+  } catch (err) {
+    console.error('Login error:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Logout endpoint
+app.post('/api/auth/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).json({ error: 'Logout failed' });
+    }
+    res.clearCookie('connect.sid'); // Clear session cookie
+    res.json({ message: 'Logout successful' });
+  });
+});
+
+// Current user session endpoint
+app.get('/api/auth/current', (req, res) => {
+  if (req.session.user) {
+    res.json({
+      loggedIn: true,
+      userId: req.session.user.id,
+      username: req.session.user.username,
+      role: req.session.user.role
+    });
+  } else {
+    res.json({ loggedIn: false });
+  }
+});
+
+// Protected routes for dashboards
+app.get('/owner-dashboard.html', authenticate, requireRole('owner'), (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/owner-dashboard.html'));
+});
+
+app.get('/walker-dashboard.html', authenticate, requireRole('walker'), (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/walker-dashboard.html'));
+});
+
+// Start the server
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
 
 // Export the app instead of listening here
 module.exports = app;
