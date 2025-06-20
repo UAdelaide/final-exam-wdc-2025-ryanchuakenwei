@@ -49,7 +49,20 @@
           loginError: ''
         };
       },
-      
+      methods: {
+        login() {
+      if (!this.role) {
+            this.loginError = "Please select a role.";
+            return;
+          }
+          this.loginError = "";
+          if (this.role === 'owner') {
+            window.location.href = 'owner-dashboard.html';
+          } else if (this.role === 'walker') {
+            window.location.href = 'walker-dashboard.html';
+          }
+        }
+      }
     }).mount('#app');
   </script>
 
