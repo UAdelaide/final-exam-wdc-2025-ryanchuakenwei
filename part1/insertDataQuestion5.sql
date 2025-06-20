@@ -18,4 +18,4 @@ INSERT INTO Dogs (name, size, owner_id) VALUES
 
 -- Walk Requests
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
-()
+((SE))
