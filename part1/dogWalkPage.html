@@ -17,7 +17,8 @@
                 setup() {
                     const dogOfTheDay = ref('');
                     const dog = ref({
-                        name: 'Dog'
+                        name: 'Dog',
+                        description: 'Dog is dog and dog is good dog. '
                     })
                     onMounted(() => {
                         fetch('https://dog.ceo/api/breeds/image/random')
