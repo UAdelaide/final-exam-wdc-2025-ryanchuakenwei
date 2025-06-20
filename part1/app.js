@@ -24,4 +24,4 @@ let db;
 
     await db.execute('
         CREATE TABLE IF NOT EXISTS Users (
-        ')
+          userid INT AUTO_INCREMENT PRIMARY KEY,')
