@@ -182,7 +182,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
                 location: request.location,
                 owner_username: request.owner_username
             }));
-            res.json(requestDisplay);
+            res.json(requestsDisplay);
         }
         catch (err) {
             console.error('Error fetching open walk requests:', err);
