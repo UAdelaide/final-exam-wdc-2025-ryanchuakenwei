@@ -68,7 +68,9 @@
               loginError.value = data.error || 'Login failed';
             }
           }
-          catch (error) {}
+          catch (error) {
+            loginError.value = 'Login error';
+          }
         }
 
         }
