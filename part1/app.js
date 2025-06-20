@@ -157,4 +157,5 @@ app.get('api/walkreqests/open', async (req, res) => {
     });
 
 // to get walking summary
-app.get ()
+app.get ('api/walkers/summary', async (req, res) => {
+    try
