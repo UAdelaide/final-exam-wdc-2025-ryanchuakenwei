@@ -159,6 +159,8 @@ app.get('api/walkreqests/open', async (req, res) => {
                 request_id: request.request_id,
                 dog_name: request.dog_name,
                 requested_time: formatDateTime(request.requested_time),
+                duration_minutes: request.duration_minutes,
+                location
             res.json(requests);
         }
         catch (err) {
