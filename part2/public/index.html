@@ -57,7 +57,9 @@
 
             if (response.ok){
               //Redirect based on what role is returned that the user has
-              
+              if (data.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              }
             }
           }
 
