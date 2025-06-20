@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 const fs = require('fs');
-const path = require ('path');
 
 let db;
 (async () => {
