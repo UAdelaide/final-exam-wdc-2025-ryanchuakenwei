@@ -160,7 +160,7 @@ app.get('/api/dogs', async (req, res) => {
     });
 
 // to get all open walk requests
-app.get('api/walkrequests/open', async (req, res) => {
+app.get('/api/walkrequests/open', async (req, res) => {
     try {
         const [requests] = await db.execute(`
             SELECT wr.request_id, d.name AS dog_name, wr.requested_time, wr.duration_minutes, wr.location, u.username AS owner_username
@@ -187,7 +187,7 @@ app.get('api/walkrequests/open', async (req, res) => {
     });
 
 // to get walking summary
-app.get ('api/walkers/summary', async (req, res) => {
+app.get ('/api/walkers/summary', async (req, res) => {
     try {
         const [walkers] = await db.execute(`
             SELECT u.username,
