@@ -80,4 +80,6 @@ let db;
             CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
         )`);
 
-        const [rows]
+        const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (rows[0].count === 0) {
+            await db.execute(``)
