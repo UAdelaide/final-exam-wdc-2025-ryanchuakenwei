@@ -27,11 +27,13 @@ app.use(session({
         secure: process.env.NODE_ENV === 'production', // Set to true
         maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
+}));
 
 
 // Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.urlencoded({ extended: true })); // Added for f
 
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
