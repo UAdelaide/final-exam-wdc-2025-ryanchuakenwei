@@ -163,5 +163,5 @@ app.get ('api/walkers/summary', async (req, res) => {
             SELECT u.username,
             COUNT(wr.rating_id) AS total_ratings,
             AVG(wr.rating) AS average_rating
-            COUNT(DISTINCT CASE WHEN wr.)`)
+            COUNT(DISTINCT CASE WHEN wa.status = 'accepted' THEN wa.request_id END) AS com_walks`)
     }
