@@ -169,5 +169,7 @@ app.get ('api/walkers/summary', async (req, res) => {
             GROUP BY u.user_id
             `);
 
-        const formatted = walkers.map(walker)
+        const formatted = walkers.map(walker => ({
+            walker_username:
+        )
     }
