@@ -155,7 +155,8 @@ app.get('api/walkreqests/open', async (req, res) => {
             WHERE wr.status = 'open'
             `);
 
-            const requestsDisplay = requests.map
+            const requestsDisplay = requests.map(request => ({
+                request_id: request.request_id,
             res.json(requests);
         }
         catch (err) {
