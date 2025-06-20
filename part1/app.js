@@ -108,4 +108,8 @@ let db;
                 ((SELECT dog_id FROM Dogs WHERE name = 'Big Fella'), '2025-06-10 12:00:00', 30, 'Beachside Ave', 'accepted'),
                 ((SELECT dog_id FROM Dogs WHERE name = 'Small Fella'), '2025-06-10 14:00:00', 45, 'Parklands', 'open')
             `);
-            
+
+            console.log('Initial data inserted successfully');
+        }
+
+        
