@@ -18,8 +18,8 @@
                     const dogOfTheDay = ref('');
                     const dog = ref({
                         name: 'Dog',
-                        description: 'Dog is dog and dog is good dog. '
-                    })
+                        description: 'Dog is dog and dog is good dog. Dog is best dog. COme pet dog.'
+                    });
                     onMounted(() => {
                         fetch('https://dog.ceo/api/breeds/image/random')
                             .then(response => response.json())
