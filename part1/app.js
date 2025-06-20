@@ -85,7 +85,8 @@ let db;
             await db.execute(`
                 INSERT INTO USERS (username, email, password_hash, role) VALUES
                 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-('carol123', 'carol@example.com', 'hashed789', 'owner'),
-('joshuawalker', 'joshua@example.com', 'hashedpassword123', 'walker'),
-('aiden123', 'aiden@example.com', 'hashedpassword456', 'owner')`)
+                ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+                ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+                ('joshuawalker', 'joshua@example.com', 'hashedpassword123', 'walker'),
+                ('aiden123', 'aiden@example.com', 'hashedpassword456', 'owner')
+            `);
