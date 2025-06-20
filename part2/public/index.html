@@ -13,7 +13,26 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <!-- Login edits here -->
-    <form @submit.prevent = "login" class = "mb-4 p-4"
+    <form @submit.prevent = "login" class = "mb-4 p-4 border rounded bg-white shadow-sm" style="max-width: 400px;">
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input v-model="username" type="text" id="username" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input v-model="password" type="password" id="password" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="role" class="form-label">Role</label>
+        <select v-model="role" id="role" class="form-select" required>
+          <option disabled value="">Select role</option>
+          <option value="owner">Owner</option>
+          <option value="walker">Walker</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <div v-if="loginError" class="text-danger mt-2">{{ loginError }}</div>
+    </form>
     <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a>
   </div>
