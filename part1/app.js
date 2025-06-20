@@ -182,4 +182,4 @@ app.get ('api/walkers/summary', async (req, res) => {
     }
 });
 
-app.use(express)
+app.use(express.static(path.join(__dirname, 'public')));
