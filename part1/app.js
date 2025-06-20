@@ -176,5 +176,7 @@ app.get ('api/walkers/summary', async (req, res) => {
             completed_walks: 0
         }));
         res.json(formatted);
+    }
+    catch (err) {
         )
     }
