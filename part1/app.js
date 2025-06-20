@@ -20,5 +20,7 @@ let db;
       user: 'root',
       password: '',
       database: 'DogWallkService'
-
     });
+
+    await db.execute('
+        ')
