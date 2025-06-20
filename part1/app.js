@@ -118,4 +118,6 @@ let db;
     }
     catch (err) {
         console.error('Error initializing database:', err);
+        process.exit(1);
     }
+}
