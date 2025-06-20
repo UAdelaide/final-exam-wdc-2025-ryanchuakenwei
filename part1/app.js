@@ -154,6 +154,8 @@ app.get('api/walkreqests/open', async (req, res) => {
             JOIN Users u on d.owner_id = u.user_id
             WHERE wr.status = 'open'
             `);
+
+            
             res.json(requests);
         }
         catch (err) {
