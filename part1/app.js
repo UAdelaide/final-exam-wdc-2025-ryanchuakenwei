@@ -54,5 +54,5 @@ let db;
         )`);
 
     await db.execute(`
-        CREATE TABLE IF NOT EXISTS Walks (
-            walk_id INT AUTO_INCREMENT PRIMARY KEY,
+        CREATE TABLE IF NOT EXISTS WalkApplications (
+        
