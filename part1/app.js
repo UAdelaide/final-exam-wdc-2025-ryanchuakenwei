@@ -131,7 +131,10 @@ app.get('/api/dogs', async (req, res) => {
             JOIN Users u ON d.owner_id =u.user_id
             `);
 
-            const 
+            const dogsDisplay = dogs.map(dogs => ({
+                dog_name: dogs.dog_name,
+                size:
+            )
         }
         catch (err) {
             console.error('Error fetching dogs:', err);
