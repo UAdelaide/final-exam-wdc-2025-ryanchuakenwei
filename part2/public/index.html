@@ -63,11 +63,12 @@
               else if (data.role === 'walker') {
                 window.location.href = 'walker-dashboard.html';
               }
-              else {
-                loginError.value = data.error || 'Login failed';
-              }
+            }
+            else {
+              loginError.value = data.error || 'Login failed';
             }
           }
+        }
 
         }
 
