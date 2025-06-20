@@ -120,7 +120,11 @@
           loadWalks();
         });
 
-        async 
+        async function logout() {
+          try {
+            await fetch('/api/auth/lougout')
+          }
+        }
 
         return {
           form,
