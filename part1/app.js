@@ -112,4 +112,5 @@ let db;
             console.log('Initial data inserted successfully');
         }
 
-        
+        app.listen(PORT, () => {
+            
