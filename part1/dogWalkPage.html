@@ -161,6 +161,12 @@
             <div class = "contactInfo">
                 <button @click = "showContactInfo">Contact Info</button>
             </div>
+
+            <div v-if = "showContactInfo" class = "contactOverlay">
+                <div class = "contactInfoNumber">
+                    Call us at: 0123-456-7890 NOW!!!
+                </div>
+            </div>
         </div>
         <script>
             const { createApp, ref, onMounted } = Vue;
