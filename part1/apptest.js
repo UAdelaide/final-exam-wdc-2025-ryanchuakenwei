@@ -42,6 +42,7 @@ let db;
 
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
+        const dataPath = path.join(__dirname, 'insertDataQuestion5.sql');
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
