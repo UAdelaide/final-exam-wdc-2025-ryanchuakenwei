@@ -53,4 +53,6 @@ let db;
             FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
         )`);
 
-        
+    await db.execute(`
+        CREATE TABLE IF NOT EXISTS Walks (
+            walk_id INT AUTO_INCREMENT PRIMARY KEY,
