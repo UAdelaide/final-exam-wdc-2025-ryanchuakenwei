@@ -46,6 +46,7 @@ let db;
         const dataSQL = fs.readFileSync(dataPath, 'utf8');
         await db.query(dataSQL);
         console.log('Sample data inserted successfully.');
+    }
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
