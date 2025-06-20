@@ -160,7 +160,8 @@ app.get('api/walkreqests/open', async (req, res) => {
                 dog_name: request.dog_name,
                 requested_time: formatDateTime(request.requested_time),
                 duration_minutes: request.duration_minutes,
-                location
+                location: request.location,
+                owner_username: request.owner_username
             res.json(requests);
         }
         catch (err) {
