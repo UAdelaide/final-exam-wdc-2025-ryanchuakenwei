@@ -131,7 +131,7 @@ app.get('/api/dogs', async (req, res) => {
             JOIN Users u ON d.owner_id =u.user_id
             `);
 
-            const formattedDogs
+            const 
         }
         catch (err) {
             console.error('Error fetching dogs:', err);
@@ -170,13 +170,13 @@ app.get ('api/walkers/summary', async (req, res) => {
             GROUP BY u.user_id
             `);
 
-        const walkersFormat = walkers.map(walker => ({
+        const walkersDisplay = walkers.map(walker => ({
             walker_username: walker.walker_username,
             total_ratings: walker.total_ratings,
             average_rating: walker.average_rating ? Number(walker.average_rating) : null,
             completed_walks: 0
         }));
-        res.json(formatted);
+        res.json(walkersDisplay);
     }
     catch (err) {
         res.status(500).json({ error: 'Failed to fetch walker summary' });
