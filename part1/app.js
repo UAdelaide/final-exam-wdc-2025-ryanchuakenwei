@@ -28,8 +28,8 @@ let db;
       host: 'localhost',
       user: 'root',
       password: '',
-      
-    })
+      database: 'DogWalkService'
+    });
 
     await db.execute(`
         CREATE TABLE IF NOT EXISTS Users (
