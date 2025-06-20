@@ -62,6 +62,14 @@ header ul li:hover {
 }
 
 .loginButton {
+
+}
+
+.loginButton:hover {
+
+}
+
+.errorButton {
     
 }
 main, section {
