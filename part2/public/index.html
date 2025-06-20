@@ -53,7 +53,11 @@
               },
               body: JSON.stringify(loginData.value)
             });
-            const
+            const data = await response.json();
+
+            if (response.ok){
+              
+            }
           }
 
         }
