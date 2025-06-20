@@ -81,34 +81,6 @@
     }).mount('#app');
   </script>
 
-  <script
-
-
-        return {
-          message: 'Welcome to the Dog Walking Service!',
-          username: '',
-          password: '',
-          role: '',
-          loginError: ''
-        };
-      },
-      methods: {
-        login() {
-      if (!this.role) {
-            this.loginError = "Please select a role.";
-            return;
-          }
-          this.loginError = "";
-          if (this.role === 'owner') {
-            window.location.href = 'owner-dashboard.html';
-          } else if (this.role === 'walker') {
-            window.location.href = 'walker-dashboard.html';
-          }
-        }
-      }
-    }).mount('#app');
-  </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
