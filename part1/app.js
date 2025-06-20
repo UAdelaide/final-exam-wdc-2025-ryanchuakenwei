@@ -139,4 +139,4 @@ app.get('/api/dogs', async (req, res) => {
     });
 
 // to get all open walk  requests
-app.get('')
+app.get('api/walkreqests/open',)
