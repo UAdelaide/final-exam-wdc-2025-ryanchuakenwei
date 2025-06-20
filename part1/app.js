@@ -90,3 +90,6 @@ let db;
                 ('joshuawalker', 'joshua@example.com', 'hashedpassword123', 'walker'),
                 ('aiden123', 'aiden@example.com', 'hashedpassword456', 'owner')
             `);
+
+            await db.execute(`
+                INSERT INTO D
