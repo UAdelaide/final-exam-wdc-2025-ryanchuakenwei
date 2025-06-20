@@ -141,5 +141,6 @@ app.get('/api/dogs', async (req, res) => {
 // to get all open walk  requests
 app.get('api/walkreqests/open', async (req, res) => {
     try {
-        
+        const [requests] = await db.execute(`
+            SELECT wr.request_id`)
     })
