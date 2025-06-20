@@ -46,7 +46,12 @@
 
           try {
             // Sending a login request
-            const response = await fetch()
+            const response = await fetch('/api/auth/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json '
+              }
+            })
           }
 
         }
