@@ -22,6 +22,7 @@ let db;
       host: 'localhost',
       user: 'root',
       password: '',
+      multipleStatements: true
     });
 
     await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
