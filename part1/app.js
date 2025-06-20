@@ -170,7 +170,7 @@ app.get ('api/walkers/summary', async (req, res) => {
             GROUP BY u.user_id
             `);
 
-        const formatted = walkers.map(walker => ({
+        const walkersFormat = walkers.map(walker => ({
             walker_username: walker.walker_username,
             total_ratings: walker.total_ratings,
             average_rating: walker.average_rating ? Number(walker.average_rating) : null,
