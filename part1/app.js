@@ -66,4 +66,5 @@ let db;
         )`);
 
     await db.execute(`
-        CREATE TABLE IF NOT EXISTS Walks (
+        CREATE TABLE IF NOT EXISTS WalkRatings (
+        
