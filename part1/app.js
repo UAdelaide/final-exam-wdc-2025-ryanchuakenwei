@@ -171,6 +171,7 @@ app.get ('api/walkers/summary', async (req, res) => {
 
         const formatted = walkers.map(walker => ({
             walker_username: walker.walker_username,
-            total_ratings
+            total_ratings: walker.total_ratings,
+            average_rating
         )
     }
