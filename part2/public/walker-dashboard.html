@@ -87,14 +87,15 @@
             window.location.href = '/';
           }
           catch (err) {
-            console.error('')
+            console.error('Logout error', err);
           }
         }
         return {
           walks,
           message,
           error,
-          applyToWalk
+          applyToWalk,
+          logout
         };
       }
     }).mount('#app');
