@@ -40,4 +40,5 @@ let db;
           duration_minutes INT NOT NULL,
           location VARCHAR(255) NOT NULL,
           status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
-          c
+          created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+          
