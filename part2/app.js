@@ -52,6 +52,16 @@ const authenticate = (req, res, next) => {
     next();
 };
 
+const requireRole = (role) => {
+  return (req, res, next) => {
+    if (req.session.user && req.session.user.role === role) {
+      next();
+    } else {
+      res.status(403).json({ error: 'Forbidden' });
+    }
+  };
+};
+
 
 
 // Export the app instead of listening here
