@@ -17,7 +17,7 @@
     <form @submit.prevent = "login" class = "loginForm" style="max-width: 400px;">
       <div class="loginPageButtons">
         <label for="username" class="form-label">Username</label>
-        <input v-model="username" type="text" id="username" class="form-control" required>
+        <input v-model="loginData.username" type="text" id="username" class="form-control" required>
       </div>
       <div class="loginPageButtons">
         <label for="password" class="form-label">Password</label>
