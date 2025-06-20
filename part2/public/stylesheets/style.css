@@ -43,6 +43,8 @@ header ul li:hover {
     background-color: #aaaaaa;
 }
 
+/* Customizing the  */
+
 main, section {
     margin-top: 4em;
     padding: 1em;
@@ -70,7 +72,7 @@ footer h4 {
     font-weight: normal;
 }
 
-.post .date 
+.post .date
     float: right;
 }
 
