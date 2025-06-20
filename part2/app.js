@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //Configuring database
-
+const dbConfig = {
+    host: process.env.DB_HOST ||
+}
 
 // Middleware
 app.use(express.json());
