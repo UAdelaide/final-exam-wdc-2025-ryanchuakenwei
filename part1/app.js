@@ -137,7 +137,6 @@ app.get('/api/dogs', async (req, res) => {
                 owner_username: dogs.owner_username
             }));
             res.json(dogsDisplay);
-            )
         }
         catch (err) {
             console.error('Error fetching dogs:', err);
