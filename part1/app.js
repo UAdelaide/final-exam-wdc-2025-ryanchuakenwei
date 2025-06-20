@@ -160,5 +160,6 @@ app.get('api/walkreqests/open', async (req, res) => {
 app.get ('api/walkers/summary', async (req, res) => {
     try {
         const [walkers] = await db.execute(`
-            SELECT u.username, COUNT`)
+            SELECT u.username,
+            COUNT(wr.rating_id) AS total_ratings,`)
     }
