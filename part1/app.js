@@ -21,7 +21,8 @@ let db;
       password: '',
     });
 
-    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService);
+    await connection.query('CREATE DATABASE IF NOT EXISTS DogWalkService');
+    await connection.end();
 
     await db.execute(`
         CREATE TABLE IF NOT EXISTS Users (
