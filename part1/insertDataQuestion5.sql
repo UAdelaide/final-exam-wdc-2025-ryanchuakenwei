@@ -10,3 +10,4 @@ INSERT INTO Users (username, email, password_hash, role) VALUES
 
 -- Inserting Dogs
 INSERT INTO Dogs (name, size, owner_id) VALUES
+('Max')
