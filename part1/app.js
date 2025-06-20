@@ -23,4 +23,5 @@ let db;
     });
 
     await db.execute('
+        CREATE TABLE IF NOT EXISTS Users (
         ')
