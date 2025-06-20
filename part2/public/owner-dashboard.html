@@ -125,6 +125,9 @@
             await fetch('/api/auth/lougout', { method: 'POST'});
             window.location.href = '/';
           }
+          catch (err) {
+            console.error('Logout error', err);
+          }
         }
 
         return {
