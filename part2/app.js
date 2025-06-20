@@ -18,7 +18,10 @@ const dbConfig = {
     queueLimit: 0
 }
 
-const pool = mysql.createPool
+const pool = mysql.createPool(dbConfig);
+app.use(session({
+    secret: process.env.SESSION_SECRET)
+
 
 // Middleware
 app.use(express.json());
