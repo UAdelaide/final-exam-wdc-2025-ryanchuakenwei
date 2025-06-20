@@ -123,4 +123,4 @@ let db;
 })();
 
 app.get('/api/dogs', async (req, res) => {
-    
+    try {}
