@@ -21,7 +21,7 @@ const dbConfig = {
 const pool = mysql.createPool(dbConfig);
 app.use(session({
     secret: process.env.SESSION_SECRET || 'key',
-res)
+    res)
 
 
 // Middleware
