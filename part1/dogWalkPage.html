@@ -25,7 +25,7 @@
             }
 
             .DOTD h1 {
-                animation: bounceZoom 1s 
+                animation: zoomInAndOut 1s infinite alternate;
             }
 
             @keyframes spin {
@@ -36,6 +36,8 @@
                     transform: translateY(-50%) rotate(360deg);
                 }
             }
+
+            @keyframes bounceZoom
         </style>
     </head>
     <body>
