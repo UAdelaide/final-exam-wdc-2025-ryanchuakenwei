@@ -132,9 +132,9 @@ app.get('/api/dogs', async (req, res) => {
             `);
 
             const dogsDisplay = dogs.map(dog => ({
-                dog_name: dogs.dog_name,
-                size: dogs.size,
-                owner_username: dogs.owner_username
+                dog_name: dog.dog_name,
+                size: dog.size,
+                owner_username: dog.owner_username
             }));
             res.json(dogsDisplay);
         }
