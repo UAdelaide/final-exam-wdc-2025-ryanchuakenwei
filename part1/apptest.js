@@ -38,7 +38,9 @@ let db;
 
     const schemaPath = path.join(__dirname, 'dogwalks.sql');
     const schemaSQL = fs.readFileSync(schemaPath, 'utf8');
-    await db
+    await db.query(schemaSQL);
+
+    
 
         app.listen(PORT, () => {
             console.log(`Server is running on http://localhost:${PORT}`);
