@@ -122,6 +122,7 @@ let db;
     }
 })();
 
+// API 
 app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.execute(`
@@ -135,4 +136,5 @@ app.get('/api/dogs', async (req, res) => {
             console.error('Error fetching dogs:', err);
             res.status(500).json({ error: 'Failed to fetch dogs' });
         }
-    }
+    });
+
