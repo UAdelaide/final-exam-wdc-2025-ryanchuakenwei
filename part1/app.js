@@ -33,3 +33,5 @@ let db;
         )`);
 
     await db.execute(`
+        CREATE TABLE IF NOT EXISTS WalkRequests (
+          request_id INT AUTO_INCREMENT PRIMARY KEY,)
