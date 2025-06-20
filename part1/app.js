@@ -170,7 +170,7 @@ app.get('api/walkreqests/open', async (req, res) => {
             WHERE wr.status = 'open'
             `);
 
-            const requestsDisplay = requests.map(request => ({
+            const requestsDisplay = requests.map((request) => ({
                 request_id: request.request_id,
                 dog_name: request.dog_name,
                 requested_time: formatDateTime(request.requested_time),
@@ -199,7 +199,7 @@ app.get ('api/walkers/summary', async (req, res) => {
             GROUP BY u.user_id
             `);
 
-        const walkersDisplay = walkers.map(walker => ({
+        const walkersDisplay = walkers.map((walker) => ({
             walker_username: walker.walker_username,
             total_ratings: walker.total_ratings,
             average_rating: walker.average_rating ? Number(walker.average_rating) : null,
