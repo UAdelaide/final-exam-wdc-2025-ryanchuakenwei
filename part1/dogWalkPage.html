@@ -16,7 +16,9 @@
             createApp({
                 setup() {
                     const dogOfTheDay = ref('');
-                    const dog = ref({ })
+                    const dog = ref({
+                        name: 'Dog'
+                    })
                     onMounted(() => {
                         fetch('https://dog.ceo/api/breeds/image/random')
                             .then(response => response.json())
