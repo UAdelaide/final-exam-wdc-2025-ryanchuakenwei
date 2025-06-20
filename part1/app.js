@@ -146,7 +146,7 @@ app.get('/api/dogs', async (req, res) => {
             JOIN Users u ON d.owner_id = u.user_id
             `);
 
-            const dogsDisplay = dogs.map(dog => ({
+            const dogsDisplay = dogs.map(dog=>({
                 dog_name: dog.dog_name,
                 size: dog.size,
                 owner_username: dog.owner_username
