@@ -80,7 +80,11 @@
         });
 
         async function logout() {
-          try {}
+          try {
+            await fetch('/api/auth/logout', {
+              method: 'POST'
+            })
+          }
         }
         return {
           walks,
