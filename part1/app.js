@@ -125,5 +125,6 @@ let db;
 app.get('/api/dogs', async (req, res) => {
     try {
         const [dogs] = await db.execute(`
-            SELECT d.name as `)
+            SELECT d.name as dog_name, d.size, u.username AS owner_username
+            FROM `)
     }
