@@ -120,4 +120,6 @@ let db;
         console.error('Error initializing database:', err);
         process.exit(1);
     }
-}
+})();
+
+
