@@ -18,12 +18,12 @@
         <label for="username" class="form-label">Username</label>
         <input v-model="username" type="text" id="username" class="form-control" required>
       </div>
-      <div class="loginPageButto">
+      <div class="loginPageButtons">
         <label for="password" class="form-label">Password</label>
         <input v-model="password" type="password" id="password" class="form-control" required>
       </div>
-      <button type="submit" class="btn btn-primary w-100">Login</button>
-      <div v-if="loginError" class="text-danger mt-2">{{ loginError }}</div>
+      <button type="submit" class="loginButton">Login</button>
+      <div v-if="loginError" class="error">{{ loginError }}</div>
     </form>
     <!-- <a href="owner-dashboard.html" class="btn btn-outline-primary me-2">Owner Dashboard</a>
     <a href="walker-dashboard.html" class="btn btn-outline-success">Walker Dashboard</a> -->
