@@ -35,7 +35,7 @@
                         try {
                             const response = await fetch('https://dog.ceo/api/breeds/image/random');
                             const data = await response.json();
-                            dogImage.value = data.message;
+                            dogOfTheDay.value = data.message;
                         }
                         catch (error) {
                             console.error('Error fetching dog of the day:', error);
