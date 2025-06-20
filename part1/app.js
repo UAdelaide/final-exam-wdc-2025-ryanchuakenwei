@@ -39,4 +39,5 @@ let db;
           requested_time DATETIME NOT NULL,
           duration_minutes INT NOT NULL,
           location VARCHAR(255) NOT NULL,
-          status ENUM('open', 'accepted', 'completed',)
+          status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
+          c
